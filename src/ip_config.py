@@ -1,4 +1,4 @@
-from utils import *
+from src.utils import *
 from NetworkManager import *
 import ipaddress
 
@@ -9,6 +9,7 @@ import ipaddress
 @click.option('--gateway', default='192.168.0.1', help='The gateway address you want to use', show_default=True)
 @click.option('--dns', default='8.8.8.8', help='The DNS server(s) you want to use. Use comma separated list for multiple dns', show_default=True)
 def run(ip_address, subnet_mask, gateway, dns):
+    '''This command changes ipv4 ip address on Red Hat, Debian, Arch Linux based distros'''
     devices = list(filter(lambda _device: _device.ActiveConnection is not None, NetworkManager.GetAllDevices()))
 
     inform("List of devices with active connection:")
