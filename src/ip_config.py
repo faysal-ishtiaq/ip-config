@@ -13,17 +13,16 @@ def run(ip_address, subnet_mask, gateway, dns):
     devices = list(filter(lambda _device: _device.ActiveConnection is not None, NetworkManager.GetAllDevices()))
 
     inform("List of devices with active connection:")
-    for i in range(len(devices)):
-        click.echo(message=str(i) + ") " + devices[i].Interface)
+    for index, device in enumerate(devices):
+        click.echo(message=str(index) + ") " + device.Interface)
 
     choice = click.prompt("Insert the index of target device", type=int)
 
-    device = devices[choice]
-
-    assign_ip(device, device.ActiveConnection.Connection, ip_address, subnet_mask, gateway, dns)
+    assign_ip(devices[choice], ip_address, subnet_mask, gateway, dns)
 
 
-def assign_ip(device, connection, ip_address, subnet_mask, gateway, dns):
+def assign_ip(device, ip_address, subnet_mask, gateway, dns):
+    connection = device.ActiveConnection.Connection
     connection_settings = connection.GetSettings()
 
     inform("Selected device: " + device.Interface)
