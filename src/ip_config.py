@@ -25,9 +25,11 @@ def assign_ip(device, ip_address, subnet_mask, gateway, dns):
     connection = device.ActiveConnection.Connection
     connection_settings = connection.GetSettings()
 
+    print_current_configuration_for(device, connection)
+
     inform("Selected device: " + device.Interface)
     inform("Active Connection: " + connection_settings['connection']['id'])
-    inform("Network configuration:")
+    success("Network configuration to be applied:")
     inform("IP Address: " + ip_address)
     inform("Subnet Mask: " + subnet_mask)
     inform("Gateway: " + gateway)
