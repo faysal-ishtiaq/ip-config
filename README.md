@@ -15,3 +15,4 @@ ip-config --help
 ```bash
 sudo pip3 uninstall ip-config
 ```
+[![asciicast](https://asciinema.org/a/4rwaKJQPyxYjQ8RjyPMlAOdDk.svg)](https://asciinema.org/a/4rwaKJQPyxYjQ8RjyPMlAOdDk)
